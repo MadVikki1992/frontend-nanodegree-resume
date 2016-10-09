@@ -6,7 +6,9 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-if (skills === true){ $("#skills").append(HTMLskillsStart)}
+$("#header").append(HTMLskillsStart);
+$("#workExperience").append(HTMLworkStart);
+$("#education").append(HTMLschoolStart);
 
 var experience = {
 	"experience": [{
