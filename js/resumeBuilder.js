@@ -9,6 +9,7 @@ $("#header").prepend(formattedName);
 $("#header").append(HTMLskillsStart);
 $("#workExperience").append(HTMLworkStart);
 $("#education").append(HTMLschoolStart);
+$("#education").append(HTMLonlineClasses);
 
 var experience = {
 	"experience": [{
@@ -38,7 +39,7 @@ var experience = {
 	}]
 };
 
-$("#workExperience").append(experience);
+$("#workExperience").append(experience.experience);
 
 var skills = {
 	"skills": ["HTML,", " CSS,", " Wordpress,", " Javascript,", " Flash,", " Photoshop,", " Illustrator,", " Magento,", " Email Branding & Management"]
@@ -58,7 +59,7 @@ var education = {
 	}]
 };
 
-$("#education").append(education);
+$("#education").append(education.schools);
 
 var contact = {
 	"contact": [{
@@ -67,7 +68,7 @@ var contact = {
 		"email": "hug.v.mad2013@gmail.com"
 	}]
 };
-$("#footerContacts").append(contact);
+$("#footerContacts").append(contact.contact);
 
 
 
