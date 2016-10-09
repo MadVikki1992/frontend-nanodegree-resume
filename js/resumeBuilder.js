@@ -7,12 +7,11 @@ $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
 $("#header").append(HTMLskillsStart);
-$("#workExperience").append(HTMLworkStart);
-$("#education").append(HTMLschoolStart);
-$("#education").append(HTMLonlineClasses);
+//$("#education").append(HTMLschoolStart);
+//$("#education").append(HTMLonlineClasses);
 
-var experience = {
-	"experience": [{
+var work = {
+	"jobs": [{
 		"employer": "DietDirect",
 		"title": "Graphic Designer",
 		"location": "Wilmington, NC",
@@ -39,7 +38,18 @@ var experience = {
 	}]
 };
 
-$("#workExperience").append(experience.experience);
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	var formattedEmployers = formattedEmployer + formattedTitle + formattedLocation + formattedDates + formattedDescription;
+
+	$(".work-entry:last").append(formattedEmployers);
+};
 
 var skills = {
 	"skills": ["HTML,", " CSS,", " Wordpress,", " Javascript,", " Flash,", " Photoshop,", " Illustrator,", " Magento,", " Email Branding & Management"]
@@ -59,7 +69,26 @@ var education = {
 	}]
 };
 
-$("#education").append(education.schools);
+for (school in education.schools) {
+	$("#education").append(HTMLschoolStart);
+
+	var formattedSchool = HTMLschoolName.replace("%data%", education.schools[school].name);
+	var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+	var formattedSchoolDegree = formattedSchool + formattedMajor + formattedDegree;
+
+	$(".education-entry:last").append(formattedSchoolDegree);
+};
+
+for (online in education.onlineCourses) {
+	$("#education").append(HTMLonlineClasses);
+
+	var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].name);
+	var formattedonlineDegree = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].degree);
+	var formattedonlineEntry = formattedonlineSchool + formattedonlineDegree;
+
+	$(".education-entry:last").append(formattedonlineEntry);
+};
 
 var contact = {
 	"contact": [{
